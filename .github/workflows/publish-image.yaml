@@ -31,6 +31,7 @@ jobs:
           push: true
           tags: |
             ${{ env.REPOSITORY }}:${{ steps.tagName.outputs.tag }}
+            ${{ env.REPOSITORY }}:latest
 
       - name: Login to GitHub Container Registry
         uses: docker/login-action@v1
@@ -46,6 +47,7 @@ jobs:
           push: true
           tags: |
             ghcr.io/${{ env.REPOSITORY }}:${{ steps.tagName.outputs.tag }}
+            ghcr.io/${{ env.REPOSITORY }}:latest
 
       - name: Login to GitLab Container Registry
         uses: docker/login-action@v1
@@ -61,3 +63,4 @@ jobs:
           push: true
           tags: |
             registry.gitlab.com/${{ env.REPOSITORY }}:${{ steps.tagName.outputs.tag }}
+            registry.gitlab.com/${{ env.REPOSITORY }}:latest
