@@ -1,6 +1,6 @@
 module github.com/Akimon658/ogjson
 
-go 1.17
+go 1.18
 
 require github.com/otiai10/opengraph v1.1.3
 
