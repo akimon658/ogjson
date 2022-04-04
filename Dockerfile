@@ -2,9 +2,12 @@ FROM golang:1.18.0-bullseye AS builder
 
 WORKDIR /go/src/ogjson
 COPY . .
-RUN go install
 
-FROM gcr.io/distroless/base-debian11
+RUN CGO_ENABLED=0 go install -ldflags '-s -w'
+
+FROM scratch
 
 COPY --from=builder /go/bin/ogjson /ogjson
+COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/ca-certificates.crt
+
 CMD ["/ogjson"]
