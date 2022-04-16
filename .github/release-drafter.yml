@@ -31,7 +31,10 @@ category-template: '### $TITLE'
 
 exclude-contributors:
   - Akimon658
-  - dependabot[bot]
+  - dependabot
+
+exclude-labels:
+  - github_actions
 
 name-template: v$RESOLVED_VERSION
 no-changes-template: No changes.
