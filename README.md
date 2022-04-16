@@ -32,6 +32,22 @@ go install github.com/Akimon658/ogjson@latest
 
 Then you can use `ogjson` command.
 
+## Advanced usage
+
+### Change `User-Agent`
+
+There are some websites that `ogjson` cannot access by default because of `User-Agent`.
+To avoid it, you can use `user-agent` flag.
+
+```bash
+ogjson -user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36"
+```
+
+```
+$ curl "http://localhost:8080/?url=https://docs.github.com"
+{"Policy":{"TrustedTags":["meta","link","title"]},"Title":"GitHub.com Help Documentation","Type":"article","URL":{"Source":"https://docs.github.com","Scheme":"https","Opaque":"","User":null,"Host":"docs.github.com","Path":"","RawPath":"","ForceQuery":false,"RawQuery":"","Fragment":"","RawFragment":"","Value":"http://ghdocs-prod.azurewebsites.net:80/en"},"SiteName":"GitHub Docs","Image":[{"URL":"https://github.githubassets.com/images/modules/open_graph/github-logo.png","SURL":"","Type":"","Width":0,"Height":0,"Alt":""}],"Video":[],"Audio":[],"Description":"Get started, troubleshoot, and make the most of GitHub. Documentation for new users, developers, administrators, and all of GitHub's products.","Determiner":"","Locale":"","LocaleAlt":[],"Favicon":"/assets/cb-803/images/site/favicon.svg"}
+```
+
 ## License
 [MIT](./LICENSE)
 
