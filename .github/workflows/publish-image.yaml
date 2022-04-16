@@ -12,7 +12,7 @@ jobs:
       REPOSITORY: akimon658/ogjson
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - uses: olegtarasov/get-tag@b760c7889c8696fd68c69eb68f7260b9c3a5f1f6
         id: tagName
