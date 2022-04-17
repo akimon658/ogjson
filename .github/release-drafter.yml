@@ -5,6 +5,10 @@ autolabeler:
     title:
       - /^((B|b)ug|(F|f)ix).*/
 
+  - label: docs
+    files:
+      - '*.md'
+
   - label: enhancement
     title:
       - /^(F|f)eat(|ure).*/
@@ -20,8 +24,8 @@ categories:
   - title: Bug Fixes
     label: bug
 
-  - title: CI/CD
-    label: github_actions
+  - title: Docs
+    label: docs
 
   - title: Dependencies
     collapse-after: 3
