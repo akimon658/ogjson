@@ -1,9 +1,9 @@
 name: Publish image
 
 on:
-  push:
-    tags:
-      - 'v*'
+  release:
+    types:
+      - published
 
 jobs:
   build:
@@ -14,7 +14,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - uses: olegtarasov/get-tag@b760c7889c8696fd68c69eb68f7260b9c3a5f1f6
+      - uses: olegtarasov/get-tag@v2.1.1
         id: tagName
         with:
           tagRegex: 'v(.*)'
