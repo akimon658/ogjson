@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/json"
 	"flag"
+	"fmt"
 	"log"
 	"net/http"
 	"strings"
@@ -40,9 +41,15 @@ func main() {
 			return &serverError{http.StatusInternalServerError, err.Error()}
 		}
 
+		if resp.StatusCode >= http.StatusBadRequest {
+			return &serverError{resp.StatusCode, fmt.Sprintf("error response from %s: %s", url, resp.Status)}
+		}
+
 		if !strings.HasPrefix(resp.Header.Get("Content-Type"), "text/html") {
 			return &serverError{http.StatusNotFound, `Content type of requested URL is not "text/html"`}
 		}
+
+		w.WriteHeader(resp.StatusCode)
 
 		og := opengraph.New(url)
 		if err = og.Parse(resp.Body); err != nil {
