@@ -1,31 +1,15 @@
-autolabeler:
-  - label: bug
-    branch:
-      - /^((B|b)ug|(F|f)ix).*/
-    title:
-      - /^((B|b)ug|(F|f)ix).*/
-
-  - label: docs
-    files:
-      - '*.md'
-
-  - label: enhancement
-    title:
-      - /^(F|f)eat(|ure).*/
-
-  - label: github_actions
-    files:
-      - /.github/workflows/*
-
 categories:
   - title: Features
     label: enhancement
+
+  - title: Behavior Changes
+    label: behavior
 
   - title: Bug Fixes
     label: bug
 
   - title: Docs
-    label: docs
+    label: documentation
 
   - title: Dependencies
     collapse-after: 3
@@ -37,8 +21,7 @@ exclude-contributors:
   - Akimon658
   - dependabot
 
-exclude-labels:
-  - github_actions
+exclude-labels: [ github_actions ]
 
 name-template: v$RESOLVED_VERSION
 no-changes-template: No changes.
@@ -51,15 +34,12 @@ template: |
 
 version-resolver:
   major:
-    labels:
-      - major
+    labels: [ major ]
 
   minor:
-    labels:
-      - minor
+    labels: [ minor ]
 
   patch:
-    labels:
-      - patch
+    labels: [ patch ]
 
   default: patch
