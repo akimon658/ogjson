@@ -5,14 +5,63 @@ It will be useful to generate URL cards with [Hugo](https://gohugo.io), or other
 
 ## Get started
 
-Once you started the server, you can get a JSON by sending request to `localhost:8080` with a `url` parameter.
+Once you started the server, you can get JSON response by sending a request to `localhost:8080` with `url` parameter.
 
 Example using `curl`:
 
+```bash
+curl -s http://localhost:8080/?url=https://ogp.me | jq .
 ```
-$ curl http://localhost:8080/?url=https://example.com
-{"Policy":{"TrustedTags":["meta","link","title"]},"Title":"Example Domain","Type":"","URL":{"Source":"https://example.com","Scheme":"https","Opaque":"","User":null,"Host":"example.com","Path":"","RawPath":"","ForceQuery":false,"RawQuery":"","Fragment":"","RawFragment":"","Value":""},"SiteName":"","Image":[],"Video":[],"Audio":[],"Description":"","Determiner":"","Locale":"","LocaleAlt":[],"Favicon":"/favicon.ico"}
+
+<details>
+  <summary>Output</summary>
+
+```json
+{
+  "Policy": {
+    "TrustedTags": [
+      "meta",
+      "link",
+      "title"
+    ]
+  },
+  "Title": "Open Graph protocol",
+  "Type": "website",
+  "URL": {
+    "Source": "https://ogp.me",
+    "Scheme": "https",
+    "Opaque": "",
+    "User": null,
+    "Host": "ogp.me",
+    "Path": "",
+    "RawPath": "",
+    "ForceQuery": false,
+    "RawQuery": "",
+    "Fragment": "",
+    "RawFragment": "",
+    "Value": "https://ogp.me/"
+  },
+  "SiteName": "",
+  "Image": [
+    {
+      "URL": "https://ogp.me/logo.png",
+      "SURL": "",
+      "Type": "",
+      "Width": 300,
+      "Height": 300,
+      "Alt": ""
+    }
+  ],
+  "Video": [],
+  "Audio": [],
+  "Description": "The Open Graph protocol enables any web page to become a rich object in a social graph.",
+  "Determiner": "",
+  "Locale": "",
+  "LocaleAlt": [],
+  "Favicon": "/favicon.ico"
+}
 ```
+</details>
 
 There are 2 ways to use the server on your environment.
 
