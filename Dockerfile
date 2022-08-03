@@ -1,4 +1,4 @@
-FROM golang:1.18.5-bullseye AS builder
+FROM golang:1.19.0-bullseye AS builder
 
 WORKDIR /go/src/ogjson
 COPY . .
