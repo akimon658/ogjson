@@ -8,6 +8,6 @@ jobs:
   label:
     runs-on: ubuntu-latest
     steps:
-      - uses: TimonVS/pr-labeler-action@v3.1.0
+      - uses: TimonVS/pr-labeler-action@v4.0.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
